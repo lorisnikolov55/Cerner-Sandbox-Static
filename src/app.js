@@ -15,12 +15,3 @@ async function requestPatientData(){
         console.log(jsonData);
     })
 }        
- 
-/*.then(function(data){
-        return data
-    })
-
-    var response = await patient.json()
-    console.log(response)
-    $("#patient").text(JSON.stringify(response, null, '\t'))
-}*/
