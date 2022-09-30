@@ -10,7 +10,7 @@ async function requestPatientData(){
         return data
     })
 
-    var response = await patient.jso
+    var response = await patient.json
     console.log(response)
     $("#patient").text(JSON.stringify(response, null, '\t'))
 }
