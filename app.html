@@ -9,6 +9,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-    
+    <pre id="patient"></pre>
+    <script src="src/app.js"></script>
+    <script>
+        var myApp = {}
+
+        FHIR.oauth2.ready()
+        .then(function(client){
+            myApp.smart = client
+            makeRequests()
+        })
+    </script>
 </body>
 </html>
