@@ -8,7 +8,7 @@ async function makeRequests(){
         return data
     })
 
-    var response = await patient.json()
+    var response = await patient.jso
     console.log(response)
     $("#patient").text(JSON.stringify(response, null, '\t'))
 }
