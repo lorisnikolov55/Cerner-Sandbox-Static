@@ -5,11 +5,21 @@ async function requestPatientData(){
             Accept: "application/json+fhir",
             Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
         }
-    }).then(function(data){
+    }).then((response)=> {
+        if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Bad HTTP stuff!");
+          }
+        }).then((jsonData) => {
+            console.log(jsonData.entry[0]);
+        })
+}        
+    /*.then(function(data){
         return data
     })
 
     var response = await patient.json
     console.log(response)
     $("#patient").text(JSON.stringify(response, null, '\t'))
-}
+}*/
