@@ -12,8 +12,7 @@ async function requestPatientData() {
             throw new Error("Bad HTTP stuff!");
           }
     }).then((jsonData) => {
-        return jsonData
-        //console.log(jsonData);
+        console.log(jsonData);
     })
 }        
 
@@ -31,7 +30,6 @@ async function requestImmunizationData() {
             throw new Error("Bad HTTP stuff!");
           }
     }).then((jsonData) => {
-        return jsonData
-        //console.log(jsonData);
+        console.log(jsonData);
     })
 }         
