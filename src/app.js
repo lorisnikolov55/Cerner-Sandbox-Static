@@ -24,14 +24,14 @@ async function requestImmunizationData() {
             Accept: "application/json+fhir",
             Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
         }
-    }).then(handleResponse(immunization))
-} 
-    
-function handleResponse(response) {
-    if (response.ok) {
-        jsonData = response.json()
+    }).then((response) => {
+        if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Bad HTTP stuff!");
+          }
+    }).then((jsonData) => {
         return jsonData
-    } else {
-        throw new Error("Bad HTTP stuff!")
-    }
-}
+        //console.log(jsonData);
+    })
+}         
