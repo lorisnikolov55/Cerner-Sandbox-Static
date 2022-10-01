@@ -17,8 +17,8 @@
         FHIR.oauth2.ready()
         .then(function(client){
             myApp.smart = client
-            patientData = requestPatientData()
-            immunizationData = requestImmunizationData()
+            var patientData = await requestPatientData()
+            var immunizationData = await requestImmunizationData()
 
             console.log(patientData)
             console.log(immunizationData)
