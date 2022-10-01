@@ -25,7 +25,7 @@ async function requestImmunizationData() {
             Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
         }
     }).then(handleResponse(immunization))
-}
+} 
     
 function handleResponse(response) {
     if (response.ok) {
