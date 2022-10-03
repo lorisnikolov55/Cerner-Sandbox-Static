@@ -66,6 +66,8 @@ function defaultPatient() {
 
 /***** HTML indexing *****/
 drawVisualization = function (p) {
+    console.log(fname)
+    console.log(typeof fname)
     // Patient data
     $("#holder").show();
     $("#loading").hide();
