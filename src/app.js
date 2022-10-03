@@ -17,19 +17,8 @@ async function extractData() {
         var fname = "";
         var lname = "";
 
-        console.log(typeof jsonData.name[0].given)
-        console.log(typeof jsonData.name[0].given[0])
-
-        /*if (typeof jsonData.name[0] !== "undefined") {
-              fname = jsonData.name[0].given.join(" ");
-            lname = jsonData.name[0].family.join(" ");
-        }*/
-
-        //console.log(p.fname)
-        //console.log(p.lname)
-
-        //var fname = String(jsonData.name[0].given[0])
-        //var lname = String(jsonData.name[0].family[0])
+        var fname = jsonData.name[0].given[0]
+        var lname = jsonData.name[0].family[0]
         var gender = jsonData.gender
         var dob = new Date(jsonData.birthDate)
         var day = dob.getDate()
