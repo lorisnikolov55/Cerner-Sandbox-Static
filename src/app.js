@@ -14,8 +14,8 @@ async function extractData() {
     }).then((jsonData) => {
         console.log(jsonData)
 
-        var fname = jsonData.name[0].given
-        var lname = jsonData.name[0].family
+        var fname = jsonData.name[0].given[0]
+        var lname = jsonData.name[0].family[0]
         var gender = jsonData.gender
         var dob = new Date(jsonData.birthDate)
         var day = dob.getDate()
@@ -67,7 +67,7 @@ function defaultPatient() {
 }
 
 /***** HTML indexing *****/
-window.drawVisualization = function (p) {
+drawVisualization = function (p) {
     // Patient data
     $("#holder").show();
     $("#loading").hide();
