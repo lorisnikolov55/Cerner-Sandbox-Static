@@ -9,6 +9,6 @@ async function requestPatientData() {
         return data
     })
     
-    var response = await patient.json
+    var response = await patient.json()
     console.log(response)
 }        
