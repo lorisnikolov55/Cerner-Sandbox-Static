@@ -29,6 +29,8 @@ async function extractData() {
         p.fname = fname
         p.lname = lname
 
+        console.log(p)
+
         return p
         
         //console.log(p.birthdate)
