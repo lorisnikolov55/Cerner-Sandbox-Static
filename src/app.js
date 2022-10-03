@@ -12,7 +12,7 @@ async function rextractData() {
             throw new Error("Bad HTTP stuff!");
           }
     }).then((jsonData) => {
-        console.log(jsonData.entry[0]);
+        console.log(jsonData.name[0]);
 
         /*var gender = patient.gender;
         var dob = new Date(patient.birthDate);
