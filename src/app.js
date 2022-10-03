@@ -10,5 +10,4 @@ async function requestPatientData() {
     })
     
     var response = await patient.json()
-    console.log(response)
 }        
