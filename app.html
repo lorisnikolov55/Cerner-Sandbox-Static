@@ -61,12 +61,10 @@
         .then(function(client){
             myApp.smart = client
             extractData().then(function(p) {
-                console.log(p)
+                console.log(p.fname)
             })
             //.then(
             //Display Patient Demographics and Observations if extractData was success
-            //console.log(p.fname),
-            //console.log(p.lname))
             //function (p) {
             //drawVisualization(p);
             //})
