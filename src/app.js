@@ -36,8 +36,6 @@ async function extractData() {
         console.log(p.gender)
         console.log(p.fname)
         console.log(p.lname)
-
-        ret.resolve(p);
     });
 }        
 
