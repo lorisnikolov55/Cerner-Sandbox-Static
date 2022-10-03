@@ -8,6 +8,6 @@ async function requestPatientData() {
     }).then(function(data) {
         return data
     })
-
-     await patient.json()
+    
+    await patient.json()
 }        
