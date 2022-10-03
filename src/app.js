@@ -30,7 +30,7 @@ async function requestImmunizationData() {
     var response = await immunization.json()
     console.log(response)
     $("#immunization").text(JSON.stringify(response, null, '\t'))
-}
+}  
     
     /*.then((response) => {
         if (response.ok) {
