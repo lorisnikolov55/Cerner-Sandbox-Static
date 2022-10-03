@@ -4,11 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./src/app.css"
+    />
     <title>Cerner Sandbox App</title>
     <script src="lib/fhir-client.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
-<body>
+<body style="background-color: navy">
+    <div class="child">
+    <h1>Health Records</h1>
+        <nav class="navbar">
+            <div class="navbar_container">
+                <img src="https://media-exp1.licdn.com/dms/image/C560BAQEgrKE84OOUOg/company-logo_200_200/0/1635774256560?e=2147483647&v=beta&t=ZDyFJmyvDfblW7WkDdIMrBLMR4os7OHIvW1Ww6qiJNs" id="navbar_logo"></a>
+                <ul class="navbar_menu">
+                    <li class="navbar_item">
+                    <!--***** Navbar link to immunizations *****-->
+                    <a href="./immunizations.html" class="navbar_links">My Immunizations</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     <pre id="patient"></pre>
     <!--<pre id="immunization"></pre>-->
     <script src="src/app.js"></script>
