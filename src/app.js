@@ -34,7 +34,7 @@ async function extractData() {
         console.log(p.fname)
         console.log(p.lname)
 
-        ret.resolve(p);
+        //ret.resolve(p);
     });
 }        
 
