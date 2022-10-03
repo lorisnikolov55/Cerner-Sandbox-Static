@@ -17,6 +17,8 @@ async function extractData() {
         var fname = "";
         var lname = "";
 
+        console.log(typeof jsonData.name[0])
+
         if (typeof jsonData.name[0] !== "undefined") {
             fname = jsonData.name[0].given.join(" ");
             lname = jsonData.name[0].family.join(" ");
