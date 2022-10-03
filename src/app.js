@@ -22,8 +22,8 @@ async function extractData() {
             lname = jsonData.name[0].family.join(" ");
         }
 
-        console.log(p.fname)
-        console.log(p.lname)
+        //console.log(p.fname)
+        //console.log(p.lname)
 
         var fname = str(jsonData.name[0].given)
         var lname = str(jsonData.name[0].family)
