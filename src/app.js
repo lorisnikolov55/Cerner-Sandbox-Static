@@ -28,8 +28,8 @@ async function extractData() {
         //console.log(p.fname)
         //console.log(p.lname)
 
-        //var fname = str(jsonData.name[0].given[0])
-        //var lname = str(jsonData.name[0].family[0])
+        //var fname = String(jsonData.name[0].given[0])
+        //var lname = String(jsonData.name[0].family[0])
         var gender = jsonData.gender
         var dob = new Date(jsonData.birthDate)
         var day = dob.getDate()
