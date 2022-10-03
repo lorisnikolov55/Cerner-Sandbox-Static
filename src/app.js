@@ -14,6 +14,17 @@ async function extractData() {
     }).then((jsonData) => {
         console.log(jsonData)
 
+        var fname = "";
+        var lname = "";
+
+        if (typeof patient.name[0] !== "undefined") {
+            fname = patient.name[0].given.join(" ");
+            lname = patient.name[0].family.join(" ");
+        }
+
+        console.log(p.fname)
+        console.log(p.lname)
+
         var fname = str(jsonData.name[0].given)
         var lname = str(jsonData.name[0].family)
         var gender = jsonData.gender
