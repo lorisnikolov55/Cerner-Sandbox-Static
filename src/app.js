@@ -29,10 +29,12 @@ async function extractData() {
         p.fname = fname
         p.lname = lname
 
-        console.log(p.birthdate)
-        console.log(p.gender)
-        console.log(p.fname)
-        console.log(p.lname)
+        return p
+        
+        //console.log(p.birthdate)
+        //console.log(p.gender)
+        //console.log(p.fname)
+        //console.log(p.lname)
     });
 }        
 
@@ -66,8 +68,8 @@ function defaultPatient() {
 
 /***** HTML indexing *****/
 drawVisualization = function (p) {
-    console.log(fname)
-    console.log(typeof fname)
+    console.log(p.fname)
+    console.log(typeof p.fname)
     // Patient data
     $("#holder").show();
     $("#loading").hide();
@@ -77,7 +79,18 @@ drawVisualization = function (p) {
     $("#birthdate").html(p.birthdate);
   };
 
-
+/***** HTML indexing *****/
+function drawVisualization(p) {
+    console.log(p.fname)
+    console.log(typeof p.fname)
+    // Patient data
+    $("#holder").show();
+    $("#loading").hide();
+    $("#fname").html(p.fname);
+    $("#lname").html(p.lname);
+    $("#gender").html(p.gender);
+    $("#birthdate").html(p.birthdate);
+  };
 
 
 
