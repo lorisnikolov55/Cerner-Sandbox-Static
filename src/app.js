@@ -17,28 +17,24 @@ async function extractData() {
         var fname = jsonData.name.given
         var lname = jsonData.name.family
         var gender = jsonData.gender
+        var dob = new Date(jsonData.birthDate)
+        var day = dob.getDate()
+        var monthIndex = dob.getMonth() + 1
+        var year = dob.getFullYear()
+        var dobStr = monthIndex + "/" + day + "/" + year
 
-        /*var gender = patient.gender;
-        var dob = new Date(patient.birthDate);
-        var day = dob.getDate();
-        var monthIndex = dob.getMonth() + 1;
-        var year = dob.getFullYear();
-        var dobStr = monthIndex + "/" + day + "/" + year;
-        var fname = "";
-        var lname = "";
+        var p = defaultPatient()
+        p.birthdate = dobStr
+        p.gender = gender
+        p.fname = fname
+        p.lname = lname
 
-        if (typeof patient.name[0] !== "undefined") {
-        fname = patient.name[0].given.join(" ");
-        lname = patient.name[0].family.join(" ");
-        }
+        console.log(p.birthdate)
+        console.log(p.gender)
+        console.log(p.fname)
+        console.log(p.lname)
 
-        var p = defaultPatient();
-        p.birthdate = dobStr;
-        p.gender = gender;
-        p.fname = fname;
-        p.lname = lname;
-
-        ret.resolve(p);*/
+        ret.resolve(p);
     });
 }        
 
