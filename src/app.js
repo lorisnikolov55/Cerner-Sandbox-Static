@@ -17,9 +17,9 @@ async function extractData() {
         var fname = "";
         var lname = "";
 
-        if (typeof patient.name[0] !== "undefined") {
-            fname = patient.name[0].given.join(" ");
-            lname = patient.name[0].family.join(" ");
+        if (typeof jsonData.name[0] !== "undefined") {
+            fname = jsonData.name[0].given.join(" ");
+            lname = jsonData.name[0].family.join(" ");
         }
 
         console.log(p.fname)
