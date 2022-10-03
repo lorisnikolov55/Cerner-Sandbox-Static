@@ -67,7 +67,7 @@ function defaultPatient() {
 }
 
 /***** HTML indexing *****/
-window.drawVisualization = function (p) {
+/*window.drawVisualization = function (p) {
     // Patient data
     $("#holder").show();
     $("#loading").hide();
@@ -75,7 +75,7 @@ window.drawVisualization = function (p) {
     $("#lname").html(p.lname);
     $("#gender").html(p.gender);
     $("#birthdate").html(p.birthdate);
-  };
+  };*/
 
 
 
