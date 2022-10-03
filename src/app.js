@@ -58,7 +58,7 @@
      
 
 /***** Patient object definition *****/
-function defaultPatient() {
+/*function defaultPatient() {
     return {
       // Patient data
       fname: { value: "" },
@@ -66,7 +66,7 @@ function defaultPatient() {
       gender: { value: "" },
       birthdate: { value: "" },
     };
-}
+}*/
 
 /***** HTML indexing *****/
 /*drawVisualization = function (p) {
@@ -106,46 +106,38 @@ function defaultPatient() {
   
       function onReady() {
         if (smart.hasOwnProperty("patient")) {
-            var patient = smart.patient;
-            var pt = patient.read();
-  
             base_url = "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d"
             var patient = fetch(base_url+"/Patient/"+myApp.smart.patient.id,{
             headers: {
                 Accept: "application/json+fhir",
                 Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
             }
-        }).then((response) => {
-            if (response.ok) {
-                return response.json()
-            } else {
-                throw new Error("Bad HTTP stuff!")
-            }
-        }).then((jsonData) => {
-            console.log(jsonData)
-        });
-  
-        $.when(pt).fail(onError);
-  
-        $.when(pt).done(function (patient) {
-            var fname = jsonData.name[0].given[0]
-            var lname = jsonData.name[0].family[0]
-            var gender = jsonData.gender
-            var dob = new Date(jsonData.birthDate)
-            var day = dob.getDate()
-            var monthIndex = dob.getMonth() + 1
-            var year = dob.getFullYear()
-            var dobStr = monthIndex + "/" + day + "/" + year
+            }).then((response) => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error("Bad HTTP stuff!")
+                }
+            }).then((jsonData) => {
+                console.log(jsonData)
+                var fname = jsonData.name[0].given[0]
+                var lname = jsonData.name[0].family[0]
+                var gender = jsonData.gender
+                var dob = new Date(jsonData.birthDate)
+                var day = dob.getDate()
+                var monthIndex = dob.getMonth() + 1
+                var year = dob.getFullYear()
+                var dobStr = monthIndex + "/" + day + "/" + year
 
-            var p = defaultPatient()
-            p.birthdate = dobStr
-            p.gender = gender
-            p.fname = fname
-            p.lname = lname
+                var p = defaultPatient()
+                p.birthdate = dobStr
+                p.gender = gender
+                p.fname = fname
+                p.lname = lname
 
-            console.log(p)
-            ret.resolve(p);
-        });
+                console.log(p)
+                ret.resolve(p);
+            });
         } else {
           onError();
         }
