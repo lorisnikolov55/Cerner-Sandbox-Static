@@ -60,7 +60,7 @@
         FHIR.oauth2.ready()
         .then(function(client){
             myApp.smart = client
-            var p = await extractData()
+            var p = extractData()
             console.log(p)
             //.then(
             //Display Patient Demographics and Observations if extractData was success
