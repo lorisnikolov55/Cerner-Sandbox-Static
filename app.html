@@ -60,7 +60,7 @@
         FHIR.oauth2.ready()
         .then(function(client){
             myApp.smart = client
-            var response = requestPatientData()
+            var response = await requestPatientData()
             console.log(response)
         })
     </script>
