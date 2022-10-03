@@ -23,7 +23,16 @@ async function requestImmunizationData() {
             Accept: "application/json+fhir",
             Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
         }
-    }).then((response) => {
+    }).then(function(data){
+        return data
+    })
+
+    var response = await immunization.json()
+    console.log(response)
+    $("#immunization").text(JSON.stringify(response, null, '\t'))
+}
+    
+    /*.then((response) => {
         if (response.ok) {
             return response.json();
           } else {
@@ -32,4 +41,4 @@ async function requestImmunizationData() {
     }).then((jsonData) => {
         console.log(jsonData);
     })
-}         
+}*/         
