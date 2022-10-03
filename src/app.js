@@ -7,16 +7,16 @@ async function extractData() {
         }
     }).then((response) => {
         if (response.ok) {
-            return response.json();
+            return response.json()
           } else {
-            throw new Error("Bad HTTP stuff!");
+            throw new Error("Bad HTTP stuff!")
           }
     }).then((jsonData) => {
-        console.log(jsonData);
+        console.log(jsonData)
 
-        var fname = jsonData.name.given;
-        var lname = jasonData.name.family;
-        var gender = jasonData.gender
+        var fname = jsonData.name.given
+        var lname = jsonData.name.family
+        var gender = jsonData.gender
 
         /*var gender = patient.gender;
         var dob = new Date(patient.birthDate);
