@@ -5,8 +5,9 @@ async function requestPatientData() {
             Accept: "application/json+fhir",
             Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
         }
+    }).then(function(data) {
+        return data
     })
 
-    var response = await patient.json()
-    return response
+     await patient.json()
 }        
