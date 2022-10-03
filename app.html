@@ -10,7 +10,7 @@
 </head>
 <body>
     <pre id="patient"></pre>
-    <pre id="immunization"></pre>
+    <!--<pre id="immunization"></pre>-->
     <script src="src/app.js"></script>
     <script>
         var myApp = {}
@@ -18,8 +18,17 @@
         FHIR.oauth2.ready()
         .then(function(client){
             myApp.smart = client
-            requestPatientData()
-            requestImmunizationData()
+            extractData().then(
+            //Display Patient Demographics and Observations if extractData was success
+            function (p) {
+            drawVisualization(p);
+            },
+
+            //Display 'Failed to call FHIR Service' if extractData failed
+            function () {
+            $("#loading").hide();
+            $("#errors").html("<p> Failed to call FHIR Service </p>");
+            })
         })
     </script>
 </body>
