@@ -18,7 +18,7 @@
     <h1>Health Records</h1>
         <nav class="navbar">
             <div class="navbar_container">
-                <img src="https://media-exp1.licdn.com/dms/image/C560BAQEgrKE84OOUOg/company-logo_200_200/0/1635774256560?e=2147483647&v=beta&t=ZDyFJmyvDfblW7WkDdIMrBLMR4os7OHIvW1Ww6qiJNs" id="navbar_logo"></a>
+                <img src="./images/Tell Health logo white.jpg" id="navbar_logo"></a>
                 <ul class="navbar_menu">
                     <li class="navbar_item">
                     <!--***** Navbar link to immunizations *****-->
@@ -60,17 +60,18 @@
         FHIR.oauth2.ready()
         .then(function(client){
             myApp.smart = client
-            extractData().then(
+            extractData()
+            //.then(
             //Display Patient Demographics and Observations if extractData was success
-            function (p) {
-            drawVisualization(p);
-            },
+            //function (p) {
+            //drawVisualization(p);
+            //},
 
             //Display 'Failed to call FHIR Service' if extractData failed
-            function () {
-            $("#loading").hide();
-            $("#errors").html("<p> Failed to call FHIR Service </p>");
-            })
+            //function () {
+            //$("#loading").hide();
+            //$("#errors").html("<p> Failed to call FHIR Service </p>");
+            //})
         })
     </script>
 </body>
