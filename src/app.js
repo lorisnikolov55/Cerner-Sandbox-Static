@@ -13,7 +13,7 @@
             if(smart.hasOwnProperty("patient")) {
                 /*****Making Request*****/
                 base_url = "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d"
-                var pt = await fetch(base_url+"/Patient/"+myApp.smart.patient.id,{
+                var pt = fetch(base_url+"/Patient/"+myApp.smart.patient.id,{
                     headers: {
                         Accept: "application/json+fhir",
                         Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
