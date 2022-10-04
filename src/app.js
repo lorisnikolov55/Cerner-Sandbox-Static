@@ -50,8 +50,9 @@
         
             ret.resolve(p);   
             console.log(p)
-            console.log(ret.promise())   
-            return ret.promise()         
+            return p
+            //console.log(ret.promise())   
+            //return ret.promise()         
         })
     }
 

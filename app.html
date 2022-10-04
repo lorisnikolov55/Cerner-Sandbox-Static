@@ -60,7 +60,8 @@
         FHIR.oauth2.ready()
         .then(function(client) {
             myApp.smart = client
-            extractData()
+            result = extractData()
+            console.log(result)
         })
     </script>
 </body>
