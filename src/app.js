@@ -1,5 +1,3 @@
-const { client } = require("fhirclient");
-
 (function (window) {
   /***** Data fetching function *****/
   window.extractData = function () {
