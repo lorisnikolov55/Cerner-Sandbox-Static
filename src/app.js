@@ -69,6 +69,9 @@
         }
 
         FHIR.oauth2.ready(onReady, onError)
+        .then(function(client) {
+            myApp.smart = client
+        })
         return ret.promise()
     }
 
