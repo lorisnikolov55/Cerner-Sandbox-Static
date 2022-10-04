@@ -63,9 +63,12 @@
         .then(function(client) {
             myApp.smart = client
             extractData()
-        })
-
-        console.log(patient)
+            console.log(patient)
+        }).then(
+            function(patient) {
+                drawVisualization(patient)
+            }
+        )
     </script>
 </body>
 </html>
