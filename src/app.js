@@ -10,8 +10,7 @@
         let h = new Headers()
         h.append("Accept", "application/json+fhir")
         h.append("Authorization", "Bearer "+myApp.smart.state.tokenResponse.access_token)
-        console.log(h)
-
+       
         let req = new Request(uri, {
             method: "GET",
             headers: h,
