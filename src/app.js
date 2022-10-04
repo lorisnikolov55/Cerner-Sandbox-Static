@@ -47,9 +47,9 @@
             patient.fname = fname;
             patient.lname = lname;
         
-            ret.resolve(patient);   
-            return ret.promise()         
+            ret.resolve(patient);           
         })
+        return ret.promise() 
     }
 
     /***** Patient object definition *****/
