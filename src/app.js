@@ -13,7 +13,7 @@ function extractData() {
   //}
 
   //function onReady(myApp) {
-  if (smart.hasOwnProperty("patient")) {
+  if (myApp.smart.hasOwnProperty("patient")) {
     console.log("Making requests");
     var patient = myApp.smart.patient;
 
