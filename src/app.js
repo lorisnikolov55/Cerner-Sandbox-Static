@@ -1,42 +1,68 @@
-async function requestPatientData() {
-    base_url = "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d"
-    var patient = await fetch(base_url+"/Patient/"+myApp.smart.patient.id,{
-        headers: {
-            Accept: "application/json+fhir",
-            Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
+(function (window) {
+    /***** Data fetching function *****/
+    window.extractData = function () {
+        var ret = $.Deferred()
+        var myApp = {}
+
+        function onError() {
+            console.log("Loading error", arguments);
+            ret.reject();
         }
-    })
 
-    var response = await patient.json() 
-    console.log(response)
+        function onReady(smart) {
+            if(smart.hasOwnProperty("patient")) {
+                /*****Making Request*****/
+                base_url = "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d"
+                var pt = await fetch(base_url+"/Patient/"+myApp.smart.patient.id,{
+                    headers: {
+                        Accept: "application/json+fhir",
+                        Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
+                    }
+                })
+                
+                $.when(pt).fail(onError)
 
-    var fname = response.name[0].given[0]
-    var lname = response.name[0].family[0]
-    var gender = response.gender
-    
-    var dob = new Date(patient.birthDate);
-    var day = dob.getDate();
-    var monthIndex = dob.getMonth() + 1;
-    var year = dob.getFullYear();
+                $.when(pt).done(function(patient) {
+                    var gender = patient.gender
+                    var dob = new Date(patient.birthDate);
+                    var day = dob.getDate();
+                    var monthIndex = dob.getMonth() + 1;
+                    var year = dob.getFullYear();
 
-    var dobStr = monthIndex + "/" + day + "/" + year;
+                    var dobStr = monthIndex + '/' + day + '/' + year;
+                    var fname = '';
+                    var lname = '';
 
-    var p = defaultPatient()
-    p.fname = fname
-    p.lname = lname
-    p.gender = gender
-    p.birthdate = dobStr
-    
-    return p
-}        
+                    if(typeof patient.name[0] !== 'undefined') {
+                        fname = patient.name[0].given.join(' ');
+                        lname = patient.name[0].family.join(' ');
+                    }
 
-/***** Patient object definition *****/
-function defaultPatient() {
-    return {
-      // Patient data
-      fname: { value: "" },
-      lname: { value: "" },
-      gender: { value: "" },
-      birthdate: { value: "" },
+                    var p = defaultPatient()
+                    p.birthdate = dobStr
+                    p.gender = gender
+                    p.fname = fname
+                    p.lname = lname
+
+                    ret.resolve(p)
+                })
+            } else {
+                onError()
+            }   
+        }
+
+        FHIR.oauth2.ready(onReady, onError)
+        return ret.promise()
     }
-}
+
+    /***** Patient object definition *****/
+    function defaultPatient() {
+    return {
+        // Patient data
+        fname: { value: "" },
+        lname: { value: "" },
+        gender: { value: "" },
+        birthdate: { value: "" },
+        }
+    }
+})(window)
