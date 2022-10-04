@@ -54,7 +54,7 @@
     }
 
     /***** Patient object definition *****/
-    function defaultPatient() {
+    window.defaultPatient = function() {
     return {
         // Patient data
         fname: { value: "" },
