@@ -11,7 +11,7 @@
     function onReady(myApp) {
       if (myApp.smart.hasOwnProperty("patient")) {
         var patient = myApp.smart.patient;
-        //var pt = patient.read();
+        var pt = patient.read();
 
         /*****Making Request*****/
         const base_url =
@@ -42,9 +42,9 @@
             }
           })
           .then((patient) => {
-            $.when(patient).fail(onError);
+            $.when(pt).fail(onError);
 
-            $.when(patient).done(function(patient) {
+            $.when(pt).done(function(patient) {
               var gender = patient.gender;
               var dob = new Date(patient.birthDate);
               var day = dob.getDate();
