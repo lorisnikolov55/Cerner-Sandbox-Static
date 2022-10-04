@@ -4,8 +4,8 @@ function extractData() {
 
   //FHIR.oauth2.ready(onReady, onError)
   FHIR.oauth2.ready().then(function (client) {
-    myApp.smart = client;
-  });
+    myApp.smart = client
+  })
 
   //function onReady(myApp) {
   if (myApp.smart.hasOwnProperty("patient")) {
