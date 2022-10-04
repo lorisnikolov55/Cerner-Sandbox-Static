@@ -48,7 +48,9 @@
             p.fname = fname;
             p.lname = lname;
         
-            ret.resolve(p);      
+            ret.resolve(p);   
+            console.log(p)
+            console.log(ret.promise())   
             return ret.promise()         
         })
     }
