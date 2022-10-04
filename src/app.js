@@ -14,7 +14,7 @@ function extractData() {
 
   //function onReady(myApp) {
   if (smart.hasOwnProperty("patient")) {
-    console.log("In onReady");
+    console.log("Making requests");
     var patient = myApp.smart.patient;
 
     const base_url =
@@ -26,7 +26,7 @@ function extractData() {
       },
     });
 
-    $.when(pt).fail(onError);
+    //$.when(pt).fail(onError);
 
     $.when(pt).done(function (patient) {
       var gender = patient.gender;
