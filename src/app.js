@@ -63,13 +63,13 @@
     }
 
     /***** HTML indexing *****/
-    window.drawVisualization = function (p) {
+    window.drawVisualization = function(patient) {
     // Patient data
     $("#holder").show();
     $("#loading").hide();
-    $("#fname").html(p.fname);
-    $("#lname").html(p.lname);
-    $("#gender").html(p.gender);
-    $("#birthdate").html(p.birthdate);
+    $("#fname").html(patient.fname);
+    $("#lname").html(patient.lname);
+    $("#gender").html(patient.gender);
+    $("#birthdate").html(patient.birthdate);
     };
 })(window)
