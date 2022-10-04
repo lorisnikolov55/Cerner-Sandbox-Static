@@ -65,9 +65,10 @@
             extractData()
             console.log(patient)
         }).then(
-            function(patient) {
-                drawVisualization(patient)
-            }
+            console.log(patient.fname),
+            console.log(patient.lname),
+            console.log(patient.gender),
+            console.log(patient.birthdate)
         )
     </script>
 </body>
