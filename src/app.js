@@ -14,7 +14,7 @@
         var patient = smart.patient;
 
         const base_url = "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d"
-        var pt = fetch(base_url+"/Immunization?patient="+smart.patient.id,{
+        var pt = fetch(base_url+"/Immunization?patient="+patient.id,{
         headers: {
             Accept: "application/json+fhir",
             Authorization: "Bearer "+smart.state.tokenResponse.access_token
