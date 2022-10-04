@@ -1,6 +1,6 @@
 (function (window) {
   /***** Data fetching function *****/
-  window.extractData = function() {
+  window.extractData = function () {
     var ret = $.Deferred();
 
     function onError() {
@@ -35,7 +35,7 @@
         fetch(req)
           .then((response) => {
             if (response.ok) {
-              console.log(response)
+              console.log(response);
               return response.json();
             } else {
               throw new Error("Bad HTTP stuff!");
@@ -44,7 +44,7 @@
           .then((patient) => {
             $.when(patient).fail(onError);
 
-            $.when(patient).done(function(patient) {
+            $.when(patient).done(function (patient) {
               var gender = patient.gender;
               var dob = new Date(patient.birthDate);
               var day = dob.getDate();
