@@ -4,6 +4,8 @@
         var ret = $.Deferred()
         var myApp = {}
 
+        console.log("Getting to here")
+
         function onError() {
             console.log("Loading error", arguments);
             ret.reject();
@@ -39,28 +41,28 @@
                     $.when(jsonData).fail(onError);
         
                     $.when(jsonData).done(function (patient) {
-                      var gender = patient.gender;
-                      var dob = new Date(patient.birthDate);
-                      var day = dob.getDate();
-                      var monthIndex = dob.getMonth() + 1;
-                      var year = dob.getFullYear();
+                        var gender = patient.gender;
+                        var dob = new Date(patient.birthDate);
+                        var day = dob.getDate();
+                        var monthIndex = dob.getMonth() + 1;
+                        var year = dob.getFullYear();
         
-                      var dobStr = monthIndex + "/" + day + "/" + year;
-                      var fname = "";
-                      var lname = "";
+                        var dobStr = monthIndex + "/" + day + "/" + year;
+                        var fname = "";
+                        var lname = "";
         
-                      if (typeof patient.name[0] !== "undefined") {
-                        fname = patient.name[0].given.join(" ");
-                        lname = patient.name[0].family.join(" ");
-                      }
+                        if (typeof patient.name[0] !== "undefined") {
+                            fname = patient.name[0].given.join(" ");
+                            lname = patient.name[0].family.join(" ");
+                        }
         
-                      var p = defaultPatient();
-                      p.birthdate = dobStr;
-                      p.gender = gender;
-                      p.fname = fname;
-                      p.lname = lname;
+                        var p = defaultPatient();
+                        p.birthdate = dobStr;
+                        p.gender = gender;
+                        p.fname = fname;
+                        p.lname = lname;
         
-                      ret.resolve(p);               
+                        ret.resolve(p);               
                     })
                 }) 
             } else {
