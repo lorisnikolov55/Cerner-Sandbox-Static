@@ -1,3 +1,5 @@
+const { client } = require("fhirclient");
+
 (function (window) {
   /***** Data fetching function *****/
   window.extractData = function () {
@@ -8,7 +10,7 @@
       ret.reject();
     }
 
-    function onReady() {
+    function onReady(myApp) {
       if (myApp.smart.hasOwnProperty("patient")) {
         var patient = myApp.smart.patient;
         //var pt = patient.read();
