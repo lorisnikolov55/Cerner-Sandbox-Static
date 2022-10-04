@@ -48,7 +48,7 @@
             patient.fname = fname;
             patient.lname = lname;
         
-            ret.resolve(p);   
+            ret.resolve(patient);   
             return ret.promise()         
         })
     }
