@@ -2,15 +2,17 @@
   /***** Data fetching function *****/
   window.extractData = function () {
     var ret = $.Deferred();
+    console.log("Top of extractData")
 
     function onError() {
+      console.log("In onError")
       console.log("Loading error", arguments);
       ret.reject();
     }
 
     function onReady() {
       if (myApp.smart.hasOwnProperty("patient")) {
-        console.log("In onReady")
+        console.log("In onReady");
         var patient = myApp.smart.patient;
         //var pt = patient.read();
 
@@ -75,10 +77,9 @@
       }
     }
 
-    FHIR.oauth2.ready(onReady, onError)
-    .then(function(client) {
-        myApp.smart = client
-    })
+    FHIR.oauth2.ready(onReady, onError).then(function (client) {
+      myApp.smart = client;
+    });
     return ret.promise();
   };
 
