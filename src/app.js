@@ -26,9 +26,9 @@
                 throw new Error("Bad HTTP stuff!");
             }
         })
-        .then((patient) => {        
-            var gender = patient.gender;
-            var dob = new Date(patient.birthDate);
+        .then((patientData) => {        
+            var gender = patientData.gender;
+            var dob = new Date(patientData.birthDate);
             var day = dob.getDate();
             var monthIndex = dob.getMonth() + 1;
             var year = dob.getFullYear();
@@ -37,16 +37,16 @@
             var fname = "";
             var lname = "";
         
-            if (typeof patient.name[0] !== "undefined") {
-                fname = patient.name[0].given.join(" ");
-                lname = patient.name[0].family.join(" ");
+            if (typeof patientData.name[0] !== "undefined") {
+                fname = patientData.name[0].given.join(" ");
+                lname = patientData.name[0].family.join(" ");
             }
         
-            var p = defaultPatient();
-            p.birthdate = dobStr;
-            p.gender = gender;
-            p.fname = fname;
-            p.lname = lname;
+            //var p = defaultPatient();
+            patient.birthdate = dobStr;
+            patient.gender = gender;
+            patient.fname = fname;
+            patient.lname = lname;
         
             ret.resolve(p);   
             return ret.promise()         

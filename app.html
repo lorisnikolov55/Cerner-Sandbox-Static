@@ -56,16 +56,16 @@
         </tr>
     <script>
         var myApp = {}
+        var patient = defaultPatient()
+        console.log(patient)
 
         FHIR.oauth2.ready()
         .then(function(client) {
             myApp.smart = client
-            extractData().then(
-                function(p) {
-                    drawVisualization(p)
-                }
-            )
+            extractData()
         })
+
+        console.log(patient)
     </script>
 </body>
 </html>
