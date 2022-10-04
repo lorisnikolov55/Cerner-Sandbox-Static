@@ -41,6 +41,7 @@
                 lname = patientData.name[0].family.join(" ");
             }
     
+            var patient = defaultPatient()
             patient.birthdate = dobStr;
             patient.gender = gender;
             patient.fname = fname;
