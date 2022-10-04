@@ -7,11 +7,6 @@ function extractData() {
     myApp.smart = client;
   });
 
-  //function onError() {
-  console.log("Loading error", arguments);
-  ret.reject();
-  //}
-
   //function onReady(myApp) {
   if (myApp.smart.hasOwnProperty("patient")) {
     console.log("Making requests");
@@ -26,7 +21,7 @@ function extractData() {
       },
     });
 
-    //$.when(pt).fail(onError);
+    $.when(pt).fail(onError);
 
     $.when(pt).done(function (patient) {
       var gender = patient.gender;
@@ -58,6 +53,11 @@ function extractData() {
   //}
 
   return ret.promise();
+}
+
+function onError() {
+  console.log("Loading error", arguments);
+  ret.reject();
 }
 
 /***** Patient object definition *****/
