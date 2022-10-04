@@ -1,6 +1,11 @@
 (function (window) {
   /***** Data fetching function *****/
   window.extractData = function () {
+    FHIR.oauth2.ready(onReady, onError).then(function (client) {
+      console.log("Making myApp the client")
+      myApp.smart = client;
+    });
+
     var ret = $.Deferred();
     console.log("Top of extractData")
 
@@ -73,13 +78,14 @@
             });
           });
       } else {
+        console.log("In the else statement")
         onError();
       }
     }
 
-    FHIR.oauth2.ready(onReady, onError).then(function (client) {
-      myApp.smart = client;
-    });
+    console.log("Bottom of extractData")
+
+    console.log(ret.promise())
     return ret.promise();
   };
 
