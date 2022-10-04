@@ -20,6 +20,8 @@
                     }
                 })
                 
+                console.log("Getting to here")
+                
                 $.when(pt).fail(onError)
 
                 $.when(pt).done(function(patient) {
