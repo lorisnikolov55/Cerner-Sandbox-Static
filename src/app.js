@@ -49,10 +49,7 @@
             p.lname = lname;
         
             ret.resolve(p);   
-            console.log(p)
-            return p
-            //console.log(ret.promise())   
-            //return ret.promise()         
+            return ret.promise()         
         })
     }
 
@@ -66,4 +63,15 @@
         birthdate: { value: "" },
         }
     }
+
+    /***** HTML indexing *****/
+    window.drawVisualization = function (p) {
+    // Patient data
+    $("#holder").show();
+    $("#loading").hide();
+    $("#fname").html(p.fname);
+    $("#lname").html(p.lname);
+    $("#gender").html(p.gender);
+    $("#birthdate").html(p.birthdate);
+    };
 })(window)
