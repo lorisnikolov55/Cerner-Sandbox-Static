@@ -57,7 +57,9 @@
     <script>
         var myApp = {}
 
-        extractData()
+        extractData().then(function(p){
+            console.log(p)
+        })
     </script>
 </body>
 </html>

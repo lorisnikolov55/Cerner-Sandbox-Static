@@ -1,6 +1,6 @@
 (function (window) {
   /***** Data fetching function *****/
-  window.extractData = function () {
+  window.extractData = function() {
     var ret = $.Deferred();
 
     function onError() {
