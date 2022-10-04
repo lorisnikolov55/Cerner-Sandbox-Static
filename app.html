@@ -64,12 +64,12 @@
             myApp.smart = client
             extractData()
             console.log(patient)
-        }).then(
+        }).then(function(patient) {
             console.log(String(patient.fname)),
             console.log(patient.lname),
             console.log(patient.gender),
             console.log(patient.birthdate)
-        )
+        })
     </script>
 </body>
 </html>
