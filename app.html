@@ -65,7 +65,11 @@
             extractData()
             console.log(patient.fname)
             console.log(patient.lname)
-        })
+        }).then(
+            (result) => {
+                console.log(result)
+            }
+        )
     </script>
 </body>
 </html>
