@@ -63,12 +63,8 @@
         .then(function(client) {
             myApp.smart = client
             extractData()
-            console.log(patient)
-        }).then(function(patient) {
-            console.log(resolve(patient.fname)),
-            console.log(patient.lname),
-            console.log(patient.gender),
-            console.log(patient.birthdate)
+            console.log(patient.fname)
+            console.log(patient.lname)
         })
     </script>
 </body>
