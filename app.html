@@ -55,14 +55,8 @@
           <td id="birthdate"></td>
         </tr>
     <script>
-        var myApp = {}
-        
-        FHIR.oauth2.ready()
-        .then(function(client) {
-            myApp.smart = client
         extractData().then(function(p) {
             console.log(p)
-        })
         })
     </script>
 </body>
