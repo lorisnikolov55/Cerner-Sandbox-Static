@@ -6,6 +6,10 @@
       myApp.smart = client;
     });
 
+    if (myApp.smart.hasOwnProperty("patient")) {
+      console.log("TRUE")
+    }
+
     var ret = $.Deferred();
     console.log("Top of extractData")
 
@@ -85,7 +89,6 @@
 
     console.log("Bottom of extractData")
 
-    console.log(ret.promise())
     return ret.promise();
   };
 
