@@ -1,11 +1,6 @@
 (function (window) {
   /***** Data fetching function *****/
   window.extractData = function () {
-    FHIR.oauth2.ready(onReady, onError).then(function (client) {
-      console.log("Making myApp the client")
-      myApp.smart = client;
-    });
-
     if (myApp.smart.hasOwnProperty("patient")) {
       console.log("TRUE")
     }
@@ -88,7 +83,7 @@
     }
 
     console.log("Bottom of extractData")
-
+    FHIR.oauth2.ready(onReady, onError)
     return ret.promise();
   };
 
