@@ -10,13 +10,13 @@
 
     function onReady(myApp) {
       if (myApp.smart.hasOwnProperty("patient")) {
-        //var patient = myApp.smart.patient;
+        var patient = myApp.smart.patient;
         //var pt = patient.read();
 
         /*****Making Request*****/
         const base_url =
           "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d";
-        const uri = base_url + "/Patient/" + myApp.smart.patient.id;
+        const uri = base_url + "/Patient/" + patient.id;
         console.log(uri);
 
         let h = new Headers();
