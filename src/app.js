@@ -1,18 +1,19 @@
 /***** Data fetching function *****/
 function extractData() {
   var ret = $.Deferred()
-  
-  FHIR.oauth2.ready(onReady, onError)
+
+  //FHIR.oauth2.ready(onReady, onError)
+  FHIR.oauth2.ready()
   .then(function(client) {
     myApp.smart = client
   })
 
-  function onError() {
+  //function onError() {
     console.log("Loading error", arguments);
     ret.reject();
-  }
+  //}
 
-  function onReady(myApp) {
+  //function onReady(myApp) {
     if (smart.hasOwnProperty("patient")) {
       console.log("In onReady");
       var patient = myApp.smart.patient;
@@ -56,7 +57,7 @@ function extractData() {
     } else {
       onError();
     }
-  }
+  //}
 
   return ret.promise();
 }
