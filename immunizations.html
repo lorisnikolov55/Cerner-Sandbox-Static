@@ -50,12 +50,13 @@
     <script>
       var myApp = {};
 
-      FHIR.oauth2.ready().then(function (client) {
+      FHIR.oauth2.ready()
+      .then(function (client) {
         myApp.smart = client;
         requestImmunizationData().then(function (p) {
           drawImmunization(p);
-        });
-      });
+        })
+      })
     </script>
   </body>
 </html>
