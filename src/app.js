@@ -163,6 +163,8 @@ function drawPatient(p) {
 /***** HTML indexing immunizations *****/
 function drawImmunization(i) {
   // Immunization data
+  $("#holder").show();
+  $("#loading").hide();
   $("#type").html(i.vCode);
   $("#manufacturer").html(i.vManufacturer);
   $("#status").html(i.vStatus);
