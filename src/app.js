@@ -100,7 +100,7 @@ async function requestImmunizationData() {
   }
 
   if (immunizationData.resource.hasOwnProperty("date")) {
-    var dateGiven = immunizationData.resource.date
+    var dateGiven = immunizationData.resource.date;
     console.log(dateGiven);
   } else {
     var dateGiven = "NA";
