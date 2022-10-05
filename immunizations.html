@@ -57,7 +57,6 @@
         FHIR.oauth2.ready()
         .then(function(client) {
             myApp.smart = client
-            //requestImmunizationData().then((immunizationData) => console.log(immunizationData))
             requestImmunizationData().then(function(i) {
                 drawImmunization(i)
             })
