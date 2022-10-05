@@ -53,42 +53,41 @@ async function requestImmunizationData() {
   });
 
   var immunizationData = await immunization.json();
-  immunizationData = immunizationData.entry[0];
-  console.log(immunizationData);
+  console.log(immunizationData.entry[0]);
 
-  if (immunizationData.resource.hasOwnProperty("vaccineCode")) {
-    var vaccineCode = immunizationData.resource.vaccineCode.text;
+  if (immunizationData.entry[0].resource.hasOwnProperty("vaccineCode")) {
+    var vaccineCode = immunizationData.entry[0].resource.vaccineCode.text;
     console.log(vaccineCode);
   } else {
     var vaccineCode = "NA";
     console.log(vaccineCode);
   }
 
-  if (immunizationData.resource.hasOwnProperty("manufacturer")) {
-    var vaccineManufacturer = immunizationData.resource.manufacturer.display;
+  if (immunizationData.entry[0].resource.hasOwnProperty("manufacturer")) {
+    var vaccineManufacturer = immunizationData.entry[0].resource.manufacturer.display;
     console.log(vaccineManufacturer);
   } else {
     var vaccineManufacturer = "NA";
     console.log(vaccineManufacturer);
   }
 
-  if (immunizationData.resource.hasOwnProperty("status")) {
-    var vaccineStatus = immunizationData.resource.status;
+  if (immunizationData.entry[0].resource.hasOwnProperty("status")) {
+    var vaccineStatus = immunizationData.entry[0].resource.status;
     console.log(vaccineStatus);
   } else {
     var vaccineStatus = "NA";
     console.log(vaccineStatus);
   }
 
-  if (immunizationData.resource.hasOwnProperty("doseQuantity")) {
+  if (immunizationData.entry[0].resource.hasOwnProperty("doseQuantity")) {
     if (
-      typeof String(immunizationData.resource.doseQuantity.value) ||
-      immunizationData.resource.doseQuantity.unit !== "unknown unit"
+      typeof String(immunizationData.entry[0].resource.doseQuantity.value) ||
+      immunizationData.entry[0].resource.doseQuantity.unit !== "unknown unit"
     ) {
       var doseQuantity =
-        String(immunizationData.resource.doseQuantity.value) +
+        String(immunizationData.entry[0].resource.doseQuantity.value) +
         " " +
-        immunizationData.resource.doseQuantity.unit;
+        immunizationData.entry[0].resource.doseQuantity.unit;
       console.log(doseQuantity);
     } else {
       var doseQuantity = "NA";
@@ -99,16 +98,16 @@ async function requestImmunizationData() {
     console.log(doseQuantity);
   }
 
-  if (immunizationData.resource.hasOwnProperty("date")) {
-    var dateGiven = immunizationData.resource.date;
+  if (immunizationData.entry[0].resource.hasOwnProperty("date")) {
+    var dateGiven = immunizationData.entry[0].resource.date;
     console.log(dateGiven);
   } else {
     var dateGiven = "NA";
     console.log(dateGiven);
   }
 
-  if (immunizationData.resource.hasOwnProperty("expirationDate")) {
-    var expiryDate = immunizationData.resource.expirationDate;
+  if (immunizationData.entry[0].resource.hasOwnProperty("expirationDate")) {
+    var expiryDate = immunizationData.entry[0].resource.expirationDate;
     console.log(expiryDate);
   } else {
     var expiryDate = "NA";
