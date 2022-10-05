@@ -101,6 +101,8 @@ async function requestImmunizationData() {
 
   if (immunizationData.resource.hasOwnProperty("date")) {
     var dateGiven = new Date(immunizationData.resource.data);
+    console.log(immunizationData.resource.data)
+    console.log(dateGiven)
     var day = dateGiven.getDate();
     var monthIndex = dateGiven.getMonth() + 1;
     var year = dateGiven.getFullYear();
