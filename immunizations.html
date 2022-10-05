@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./src/app.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./src/app.css"
+    />
     <title>Cerner Sandbox App</title>
     <script src="lib/fhir-client.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  </head>
-  <body style="background-color: navy">
+</head>
+<body style="background-color: navy">
     <div class="child">
-      <h1>Health Records</h1>
-      <h2>Your Immunizations</h2>
-      <img src="./images/Tell Health logo white.jpg" id="immunization_image" alt="Tell Health Inc.">
-      <script src="src/app.js"></script>
-      <div id="errors"></div>
+    <h1>Health Records</h1>
+    <script src="src/app.js"></script>
+    <div id="errors"></div>
       <div id="loading" class="spinner">
         <div class="bounce1"></div>
         <div class="bounce2"></div>
         <div class="bounce3"></div>
-      </div>
-      <table>
-        <tr>
-          <th>Type:</th>
-          <td id="type"></td>
-        </tr>
-        <tr>
-          <th>Manufacturer:</th>
-          <td id="manufacturer"></td>
-        </tr>
-        <tr>
-          <th>Status:</th>
-          <td id="status"></td>
-        </tr>
-        <tr>
-          <th>Quantity:</th>
-          <td id="quantity"></td>
-        </tr>
-        <tr>
-          <th>Date Given:</th>
-          <td id="dateGiven"></td>
-        </tr>
-        <tr>
-          <th>Expiration Date:</th>
-          <td id="expiryDate"></td>
-        </tr>
-      </table>
     </div>
+    <h2>Your Immunizations</h2>
+    <img src="./images/Tell Health logo white.jpg" id="immunization_image" alt="Tell Health Inc.">
+    <table>
+      <tr>
+        <th>Type:</th>
+        <td id="type"></td>
+      </tr>
+      <tr>
+        <th>Manufacturer:</th>
+        <td id="manufacturer"></td>
+      </tr>
+      <tr>
+        <th>Status:</th>
+        <td id="status"></td>
+      </tr>
+      <tr>
+        <th>Quantity:</th>
+        <td id="quantity"></td>
+      </tr>
+      <tr>
+        <th>Date Given:</th>
+        <td id="dateGiven"></td>
+      </tr>
+      <tr>
+        <th>Expiration Date:</th>
+        <td id="expiryDate"></td>
+      </tr>
+    </table>
     <script>
-        var myApp = {};
+        var myApp = {}
 
         FHIR.oauth2.ready()
-        .then(function (client) {
+        .then(function(client) {
             myApp.smart = client
-            requestImmunizationData().then(function (i) {
-                drawImmunization(i);
+            requestImmunizationData().then(function (p) {
+                drawImmunization(p)
             })
         })
     </script>
-  </body>
+</body>
 </html>
