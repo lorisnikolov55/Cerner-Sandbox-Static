@@ -57,10 +57,10 @@
         FHIR.oauth2.ready()
         .then(function(client) {
             myApp.smart = client
-            requestImmunizationData().then((immunizationData) => console.log(immunizationData))
-            /*requestPatientData().then(function(p) {
+            //requestImmunizationData().then((immunizationData) => console.log(immunizationData))
+            requestPatientData().then(function(p) {
                 drawPatient(p)
-            })*/
+            })
         })
     </script>
 </body>
