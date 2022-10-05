@@ -127,6 +127,13 @@ body {
   width: 90px;
 }
 
+#login_image{
+  max-width: fit-content;
+  max-height: fit-content;
+  height: 175px;
+  width: 175px;
+}
+
 @-webkit-keyframes sk-bouncedelay {
   0%,
   80%,
