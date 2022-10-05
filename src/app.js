@@ -100,8 +100,15 @@ async function requestImmunizationData() {
   }
 
   if (immunizationData.resource.hasOwnProperty("date")) {
-    let dateGiven = immunizationData.resource.date;
-    console.log(dateGiven);
+    let dateGiven = new Date(immunizationData.resource.data);
+    let day = dateGiven.getDate();
+    let monthIndex = dateGiven.getMonth() + 1;
+    let year = dateGiven.getFullYear();
+
+    let dateGivenStr = monthIndex + "/" + day + "/" + year;
+
+    dateGivenStr = immunizationData.resource.date;
+    console.log(dateGivenStr);
   } else {
     let dateGiven = "NA";
     console.log(dateGiven);
@@ -120,10 +127,10 @@ async function requestImmunizationData() {
   i.vManufacturer = vaccineManufacturer;
   i.vStatus = vaccineStatus;
   i.vDoseQuantity = doseQuantity;
-  i.vDateGiven = dateGiven;
+  i.vDateGiven = dateGivenStr;
   i.vExpiryDate = expiryDate;
 
-  return i
+  return i;
 }
 
 /***** Patient object definition *****/
