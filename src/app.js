@@ -1,5 +1,5 @@
 async function requestPatientData() {
-  base_url = "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d"
+  const base_url = "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d"
   var patient = await fetch(base_url+"/Patient/"+myApp.smart.patient.id,{
       headers: {
           Accept: "application/json+fhir",
@@ -36,6 +36,21 @@ async function requestPatientData() {
   return p
 }  
 
+async function requestImmunizationData() {
+  const base_url = "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d"
+  var immunization = await fetch(base_url+"/Immunization?patient="+myApp.smart.patient.id,{
+      headers: {
+          Accept: "application/json+fhir",
+          Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
+      }
+  }).then(function(data){
+      return data
+  })
+
+  var immunizationData = await immunization.json()
+  console.log(immunizationData)
+}  
+
 /***** Patient object definition *****/
 function defaultPatient() {
   return {
@@ -47,7 +62,20 @@ function defaultPatient() {
   };
 }
 
-/***** HTML indexing *****/
+/***** Immunization object definition *****/
+function defaultImmunization() {
+  return {
+    // Immunization data
+    vCode: { value: "" },
+    vManufacturer: { value: "" },
+    vStatus: { value: "" },
+    vDoseQuantity: { value: "" },
+    vDateGiven: { value: "" },
+    vExpiryDate: { value: "" },
+  }
+}
+
+/***** HTML indexing patients *****/
 function drawPatient (p) {
   // Patient data
   $("#holder").show();
@@ -56,4 +84,15 @@ function drawPatient (p) {
   $("#lname").html(p.lname);
   $("#gender").html(p.gender);
   $("#birthdate").html(p.birthdate);
+};
+
+/***** HTML indexing immunizations *****/
+function drawImmunization (i) {
+  // Immunization data
+  $("#type").html(i.vCode);
+  $("#manufacturer").html(i.vManufacturer);
+  $("#status").html(i.vStatus);
+  $("#quantity").html(i.vDoseQuantity);
+  $("#dateGiven").html(i.vDateGiven);
+  $("#expiryDate").html(i.vExpiryDate);
 };
