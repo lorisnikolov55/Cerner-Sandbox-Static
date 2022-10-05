@@ -48,15 +48,15 @@
       </table>
     </div>
     <script>
-      var myApp = {};
+        var myApp = {};
 
-      FHIR.oauth2.ready()
-      .then(function (client) {
-        myApp.smart = client;
-        requestImmunizationData().then(function (i) {
-          drawImmunization(i);
+        FHIR.oauth2.ready()
+        .then(function (client) {
+            myApp.smart = client
+            requestImmunizationData().then(function (i) {
+                drawImmunization(i);
+            })
         })
-      })
     </script>
   </body>
 </html>
