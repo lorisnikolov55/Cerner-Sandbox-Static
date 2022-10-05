@@ -12,19 +12,14 @@
   <body style="background-color: navy">
     <div class="child">
       <h1>Health Records</h1>
-      <script src="src/app.js"></script>
+      <h2>Your Immunizations</h2>
+      <img src="./images/Tell Health logo white.jpg" id="immunization_image"></a>
       <div id="errors"></div>
       <div id="loading" class="spinner">
         <div class="bounce1"></div>
         <div class="bounce2"></div>
         <div class="bounce3"></div>
       </div>
-      <h2>Your Immunizations</h2>
-      <img
-        src="./images/Tell Health logo white.jpg"
-        alt="Tell Health"
-        id="immunization_image"
-      />
       <table>
         <tr>
           <th>Type:</th>
@@ -57,8 +52,8 @@
 
       FHIR.oauth2.ready().then(function (client) {
         myApp.smart = client;
-        requestImmunizationData().then(function (i) {
-          drawImmunization(i);
+        requestImmunizationData().then(function (p) {
+          drawImmunization(p);
         });
       });
     </script>
