@@ -57,10 +57,10 @@ async function requestImmunizationData() {
   console.log(immunizationData);
 
   if (immunizationData.resource.hasOwnProperty("vaccineCode")) {
-    let vaccineCode = immunizationData.resource.vaccineCode.text;
+    var vaccineCode = immunizationData.resource.vaccineCode.text;
     console.log(vaccineCode);
   } else {
-    let vaccineCode = "NA";
+    var vaccineCode = "NA";
     console.log(vaccineCode);
   }
 
