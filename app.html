@@ -57,7 +57,11 @@
     <script>
         var myApp = {}
 
-        extractData()
+        FHIR.oauth2.ready()
+        .then(function(client) {
+            myApp.smart = client
+            requestPatientData()
+        })
     </script>
 </body>
 </html>
