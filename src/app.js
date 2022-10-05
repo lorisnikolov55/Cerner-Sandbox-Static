@@ -12,7 +12,6 @@ async function requestPatientData() {
   var patientData = await patient.json()
   console.log(patientData)
 
-  var patientData = await patient.json()
   var gender = patientData.gender;
   var dob = new Date(patientData.birthDate);
   var day = dob.getDate();
