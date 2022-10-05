@@ -100,17 +100,11 @@ async function requestImmunizationData() {
   }
 
   if (immunizationData.resource.hasOwnProperty("date")) {
-    var dateGiven = new Date(immunizationData.resource.data);
-    console.log(immunizationData.resource.data)
-    console.log(dateGiven)
-    var day = dateGiven.getDate();
-    var monthIndex = dateGiven.getMonth() + 1;
-    var year = dateGiven.getFullYear();
-    var dateGivenStr = monthIndex + "/" + day + "/" + year;
-    console.log(dateGivenStr);
+    var dateGiven = immunizationData.resource.data
+    console.log(dateGiven);
   } else {
     var dateGiven = "NA";
-    console.log(dateGivenStr);
+    console.log(dateGiven);
   }
 
   if (immunizationData.resource.hasOwnProperty("expirationDate")) {
@@ -126,7 +120,7 @@ async function requestImmunizationData() {
   i.vManufacturer = vaccineManufacturer;
   i.vStatus = vaccineStatus;
   i.vDoseQuantity = doseQuantity;
-  i.vDateGiven = dateGivenStr;
+  i.vDateGiven = dateGiven;
   i.vExpiryDate = expiryDate;
 
   return i;
