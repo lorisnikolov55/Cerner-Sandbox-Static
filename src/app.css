@@ -106,6 +106,22 @@ body {
   transition: all 0.3s ease;
 }
 
+.login_links {
+  color: navy;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: underline;
+  padding: 0 1rem;
+  height: 100%;
+  font-size: 1.4rem;
+}
+
+.login_links:hover {
+  color: #008cff;
+  transition: all 0.3s ease;
+}
+
 .child {
   background-color: white;
   width: fit-content;
