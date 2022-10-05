@@ -11,7 +11,30 @@ async function requestPatientData() {
 
   var patientData = await patient.json()
   console.log(patientData)
-  return patientData
+
+  var patientData = await patient.json()
+  var gender = patientData.gender;
+  var dob = new Date(patientData.birthDate);
+  var day = dob.getDate();
+  var monthIndex = dob.getMonth() + 1;
+  var year = dob.getFullYear();
+
+  var dobStr = monthIndex + "/" + day + "/" + year;
+  var fname = "";
+  var lname = "";
+
+  if (typeof patientData.name[0] !== "undefined") {
+    fname = patientData.name[0].given.join(" ");
+    lname = patientData.name[0].family.join(" ");
+  }
+
+  var p = defaultPatient();
+  p.birthdate = dobStr;
+  p.gender = gender;
+  p.fname = fname;
+  p.lname = lname;
+
+  return p
 }  
 
 /***** Patient object definition *****/
