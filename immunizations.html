@@ -58,8 +58,8 @@
         .then(function(client) {
             myApp.smart = client
             //requestImmunizationData().then((immunizationData) => console.log(immunizationData))
-            requestPatientData().then(function(p) {
-                drawPatient(p)
+            requestImmunizationData().then(function(i) {
+                drawPatient(i)
             })
         })
     </script>

@@ -1,16 +1,17 @@
 async function requestPatientData() {
-  const base_url = "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d"
-  var patient = await fetch(base_url+"/Patient/"+myApp.smart.patient.id,{
-      headers: {
-          Accept: "application/json+fhir",
-          Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
-      }
-  }).then(function(data){
-      return data
-  })
+  const base_url =
+    "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d";
+  var patient = await fetch(base_url + "/Patient/" + myApp.smart.patient.id, {
+    headers: {
+      Accept: "application/json+fhir",
+      Authorization: "Bearer " + myApp.smart.state.tokenResponse.access_token,
+    },
+  }).then(function (data) {
+    return data;
+  });
 
-  var patientData = await patient.json()
-  console.log(patientData)
+  var patientData = await patient.json();
+  console.log(patientData);
 
   var gender = patientData.gender;
   var dob = new Date(patientData.birthDate);
@@ -33,24 +34,97 @@ async function requestPatientData() {
   p.fname = fname;
   p.lname = lname;
 
-  return p
-}  
+  return p;
+}
 
 async function requestImmunizationData() {
-  const base_url = "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d"
-  var immunization = await fetch(base_url+"/Immunization?patient="+myApp.smart.patient.id,{
+  const base_url =
+    "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d";
+  var immunization = await fetch(
+    base_url + "/Immunization?patient=" + myApp.smart.patient.id,
+    {
       headers: {
-          Accept: "application/json+fhir",
-          Authorization: "Bearer "+myApp.smart.state.tokenResponse.access_token
-      }
-  }).then(function(data){
-      return data
-  })
+        Accept: "application/json+fhir",
+        Authorization: "Bearer " + myApp.smart.state.tokenResponse.access_token,
+      },
+    }
+  ).then(function (data) {
+    return data;
+  });
 
-  var immunizationData = await immunization.json()
-  immunizationData = immunizationData.entry[0]
-  return immunizationData
-}  
+  var immunizationData = await immunization.json();
+  immunizationData = immunizationData.entry[0];
+  console.log(immunizationData);
+
+  if (immunizationData.resource.hasOwnProperty("vaccineCode")) {
+    let vaccineCode = immunizationData.resource.vaccineCode.text;
+    console.log(vaccineCode);
+  } else {
+    let vaccineCode = "NA";
+    console.log(vaccineCode);
+  }
+
+  if (immunizationData.resource.hasOwnProperty("manufacturer")) {
+    let vaccineManufacturer = immunizationData.resource.manufacturer.display;
+    console.log(vaccineManufacturer);
+  } else {
+    let vaccineManufacturer = "NA";
+    console.log(vaccineManufacturer);
+  }
+
+  if (immunizationData.resource.hasOwnProperty("status")) {
+    let vaccineStatus = immunizationData.resource.status;
+    console.log(vaccineStatus);
+  } else {
+    let vaccineStatus = "NA";
+    console.log(vaccineStatus);
+  }
+
+  if (immunizationData.resource.hasOwnProperty("doseQuantity")) {
+    if (
+      typeof String(immunizationData.resource.doseQuantity.value) ||
+      immunizationData.resource.doseQuantity.unit !== "unknown unit"
+    ) {
+      let doseQuantity =
+        String(immunizationData.resource.doseQuantity.value) +
+        " " +
+        immunizationData.resource.doseQuantity.unit;
+      console.log(doseQuantity);
+    } else {
+      let doseQuantity = "NA";
+      console.log(doseQuantity);
+    }
+  } else {
+    let doseQuantity = "NA";
+    console.log(doseQuantity);
+  }
+
+  if (immunizationData.resource.hasOwnProperty("date")) {
+    let dateGiven = immunizationData.resource.date;
+    console.log(dateGiven);
+  } else {
+    let dateGiven = "NA";
+    console.log(dateGiven);
+  }
+
+  if (immunizationData.resource.hasOwnProperty("expirationDate")) {
+    let expiryDate = immunizationData.resource.expirationDate;
+    console.log(expiryDate);
+  } else {
+    let expiryDate = "NA";
+    console.log(expiryDate);
+  }
+
+  var i = defaultImmunization();
+  p.vCode = vaccineCode;
+  p.vManufacturer = vaccineManufacturer;
+  p.vStatus = vaccineStatus;
+  p.vDoseQuantity = doseQuantity;
+  p.vDateGiven = dateGiven;
+  p.vExpiryDate = expiryDate;
+
+  return i
+}
 
 /***** Patient object definition *****/
 function defaultPatient() {
@@ -73,11 +147,11 @@ function defaultImmunization() {
     vDoseQuantity: { value: "" },
     vDateGiven: { value: "" },
     vExpiryDate: { value: "" },
-  }
+  };
 }
 
 /***** HTML indexing patients *****/
-function drawPatient (p) {
+function drawPatient(p) {
   // Patient data
   $("#holder").show();
   $("#loading").hide();
@@ -85,10 +159,10 @@ function drawPatient (p) {
   $("#lname").html(p.lname);
   $("#gender").html(p.gender);
   $("#birthdate").html(p.birthdate);
-};
+}
 
 /***** HTML indexing immunizations *****/
-function drawImmunization (i) {
+function drawImmunization(i) {
   // Immunization data
   $("#type").html(i.vCode);
   $("#manufacturer").html(i.vManufacturer);
@@ -96,4 +170,4 @@ function drawImmunization (i) {
   $("#quantity").html(i.vDoseQuantity);
   $("#dateGiven").html(i.vDateGiven);
   $("#expiryDate").html(i.vExpiryDate);
-};
+}
