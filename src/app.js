@@ -116,12 +116,12 @@ async function requestImmunizationData() {
   }
 
   var i = defaultImmunization();
-  p.vCode = vaccineCode;
-  p.vManufacturer = vaccineManufacturer;
-  p.vStatus = vaccineStatus;
-  p.vDoseQuantity = doseQuantity;
-  p.vDateGiven = dateGiven;
-  p.vExpiryDate = expiryDate;
+  i.vCode = vaccineCode;
+  i.vManufacturer = vaccineManufacturer;
+  i.vStatus = vaccineStatus;
+  i.vDoseQuantity = doseQuantity;
+  i.vDateGiven = dateGiven;
+  i.vExpiryDate = expiryDate;
 
   return i
 }
