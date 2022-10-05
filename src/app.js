@@ -65,18 +65,18 @@ async function requestImmunizationData() {
   }
 
   if (immunizationData.resource.hasOwnProperty("manufacturer")) {
-    let vaccineManufacturer = immunizationData.resource.manufacturer.display;
+    var vaccineManufacturer = immunizationData.resource.manufacturer.display;
     console.log(vaccineManufacturer);
   } else {
-    let vaccineManufacturer = "NA";
+    var vaccineManufacturer = "NA";
     console.log(vaccineManufacturer);
   }
 
   if (immunizationData.resource.hasOwnProperty("status")) {
-    let vaccineStatus = immunizationData.resource.status;
+    var vaccineStatus = immunizationData.resource.status;
     console.log(vaccineStatus);
   } else {
-    let vaccineStatus = "NA";
+    var vaccineStatus = "NA";
     console.log(vaccineStatus);
   }
 
@@ -85,40 +85,40 @@ async function requestImmunizationData() {
       typeof String(immunizationData.resource.doseQuantity.value) ||
       immunizationData.resource.doseQuantity.unit !== "unknown unit"
     ) {
-      let doseQuantity =
+      var doseQuantity =
         String(immunizationData.resource.doseQuantity.value) +
         " " +
         immunizationData.resource.doseQuantity.unit;
       console.log(doseQuantity);
     } else {
-      let doseQuantity = "NA";
+      var doseQuantity = "NA";
       console.log(doseQuantity);
     }
   } else {
-    let doseQuantity = "NA";
+    var doseQuantity = "NA";
     console.log(doseQuantity);
   }
 
   if (immunizationData.resource.hasOwnProperty("date")) {
-    let dateGiven = new Date(immunizationData.resource.data);
-    let day = dateGiven.getDate();
-    let monthIndex = dateGiven.getMonth() + 1;
-    let year = dateGiven.getFullYear();
+    var dateGiven = new Date(immunizationData.resource.data);
+    var day = dateGiven.getDate();
+    var monthIndex = dateGiven.getMonth() + 1;
+    var year = dateGiven.getFullYear();
 
-    let dateGivenStr = monthIndex + "/" + day + "/" + year;
+    var dateGivenStr = monthIndex + "/" + day + "/" + year;
 
     dateGivenStr = immunizationData.resource.date;
     console.log(dateGivenStr);
   } else {
-    let dateGiven = "NA";
+    var dateGiven = "NA";
     console.log(dateGiven);
   }
 
   if (immunizationData.resource.hasOwnProperty("expirationDate")) {
-    let expiryDate = immunizationData.resource.expirationDate;
+    var expiryDate = immunizationData.resource.expirationDate;
     console.log(expiryDate);
   } else {
-    let expiryDate = "NA";
+    var expiryDate = "NA";
     console.log(expiryDate);
   }
 
