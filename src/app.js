@@ -48,7 +48,8 @@ async function requestImmunizationData() {
   })
 
   var immunizationData = await immunization.json()
-  console.log(immunizationData.entry[0])
+  immunizationData = immunizationData.entry[0]
+  return immunizationData
 }  
 
 /***** Patient object definition *****/
