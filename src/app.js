@@ -48,7 +48,7 @@ function defaultPatient() {
 }
 
 /***** HTML indexing *****/
-window.drawPatient = function (p) {
+function drawPatient (p) {
   // Patient data
   $("#holder").show();
   $("#loading").hide();
