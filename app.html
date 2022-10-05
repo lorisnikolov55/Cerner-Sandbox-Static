@@ -33,32 +33,33 @@
         <div class="bounce1"></div>
         <div class="bounce2"></div>
         <div class="bounce3"></div>
-      </div>
-      <h2>Patient</h2>
-      <table>
-        <tr>
-          <th>First Name:</th>
-          <td id="fname"></td>
-        </tr>
-        <tr>
-          <th>Last Name:</th>
-          <td id="lname"></td>
-        </tr>
-        <tr>
-          <th>Gender:</th>
-          <td id="gender"></td>
-        </tr>
-        <tr>
-          <th>Date of Birth:</th>
-          <td id="birthdate"></td>
-        </tr>
+    </div>
+    <h2>Patient</h2>
+    <table>
+      <tr>
+        <th>First Name:</th>
+        <td id="fname"></td>
+      </tr>
+      <tr>
+        <th>Last Name:</th>
+        <td id="lname"></td>
+      </tr>
+      <tr>
+        <th>Gender:</th>
+        <td id="gender"></td>
+      </tr>
+      <tr>
+        <th>Date of Birth:</th>
+        <td id="birthdate"></td>
+      </tr>
+    </table>
     <script>
         var myApp = {}
 
         FHIR.oauth2.ready()
         .then(function(client) {
             myApp.smart = client
-            //requestPatientData().then((requestPatient) => console.log(PatientData))
+            //requestPatientData().then((patientPatient) => console.log(PatientData))
             requestPatientData().then(function(p) {
                 drawPatient(p)
             })
