@@ -52,7 +52,10 @@
       </tr>
     </table>
     <script>
-        var myApp = {}
+        requestImmunizationData().then(function (i) {
+            drawImmunization(i)
+        })
+        /*var myApp = {}
 
         FHIR.oauth2.ready()
         .then(function(client) {
@@ -60,7 +63,7 @@
             requestImmunizationData().then(function (p) {
                 drawImmunization(p)
             })
-        })
+        })*/
     </script>
 </body>
 </html>
