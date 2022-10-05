@@ -104,14 +104,11 @@ async function requestImmunizationData() {
     var day = dateGiven.getDate();
     var monthIndex = dateGiven.getMonth() + 1;
     var year = dateGiven.getFullYear();
-
     var dateGivenStr = monthIndex + "/" + day + "/" + year;
-
-    dateGivenStr = immunizationData.resource.date;
     console.log(dateGivenStr);
   } else {
     var dateGiven = "NA";
-    console.log(dateGiven);
+    console.log(dateGivenStr);
   }
 
   if (immunizationData.resource.hasOwnProperty("expirationDate")) {
