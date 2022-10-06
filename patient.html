@@ -58,10 +58,11 @@
 
         FHIR.oauth2.ready()
         .then(function(client) {
-            myApp.smart = client
+          console.log(client)
+            /*myApp.smart = client
             requestPatientData().then(function (p) {
                 drawPatient(p)
-            })
+            })*/
         })
     </script>
 </body>
