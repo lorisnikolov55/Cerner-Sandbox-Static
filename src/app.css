@@ -125,6 +125,7 @@ body {
 .child {
   background-color: white;
   width: fit-content;
+  max-width: 90%;
   height: fit-content;
   border-color: blue;
   border-radius: 10px;
