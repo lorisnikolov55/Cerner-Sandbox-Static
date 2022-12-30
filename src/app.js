@@ -53,6 +53,7 @@ async function requestImmunizationData() {
   });
 
   var immunizationData = await immunization.json();
+  console.log(immunizationData)
   console.log(immunizationData.entry[0]);
 
   if (immunizationData.entry[0].resource.hasOwnProperty("vaccineCode")) {
